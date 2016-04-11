@@ -8,8 +8,7 @@
 
 2.  Download airline delay history
 
-	<http://stat-computing.org/dataexpo/2009/2007.csv.bz2>
-
+	<http://stat-computing.org/dataexpo/2009/2007.csv.bz2>   
 	<http://stat-computing.org/dataexpo/2009/2008.csv.bz2>
 
 3.  Pre-process data using pig from following location
@@ -18,14 +17,18 @@
 4.  Analyze the correlation between weather and airline dealy.
 5.  Use spark mllib, to build a predictive system, the architecture should take current weather as feed and predict airline delay.
 
-[To view results](/doc/iteration_1.md)
+[To view results](/doc/iteration_1.md)   
 
-This excercise is based on
+This excercise is based on   
+	<http://nbviewer.jupyter.org/github/ofermend/IPython-notebooks/blob/master/blog-part-2.ipynb>   
+	<http://hortonworks.com/blog/data-science-apacheh-hadoop-predicting-airline-delays/>
 
-	http://nbviewer.jupyter.org/github/ofermend/IPython-notebooks/blob/master/blog-part-2.ipynb
+
+
+
+
+
 	
-	http://hortonworks.com/blog/data-science-apacheh-hadoop-predicting-airline-delays/
-
 
 
 
