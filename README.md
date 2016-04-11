@@ -18,7 +18,7 @@
 4.  Analyze the correlation between weather and airline dealy.
 5.  Use spark mllib, to build a predictive system, the architecture should take current weather as feed and predict airline delay.
 
-[To view results](/visuals/weather_of_KORD_2007.png)
+[To view results](/doc/iteration_1.md)
 
 This excercise is based on
 
