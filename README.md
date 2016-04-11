@@ -24,7 +24,16 @@ This excercise is based on
 	<http://hortonworks.com/blog/data-science-apacheh-hadoop-predicting-airline-delays/>
 
 
+----------------------------
 
+####Process flow
+
+1. Decide datasets
+2. Generate required visuals
+3. Finalize features
+4. Clen and prepare data
+5. Build model
+6. Evaluate the model
 
 
 
