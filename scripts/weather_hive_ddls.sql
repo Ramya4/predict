@@ -27,3 +27,35 @@ time string
 
 
 insert into weather_2007 select * from weather_2007_stg;
+
+
+
+create external table ord_stg_2007
+(
+delay int,
+month int,
+day int,
+dayOfWeek int,
+timeOfDay int,
+distance int,
+temp_min int,
+temp_max int)
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY '44' 
+STORED AS TEXTFILE LOCATION '/ml/airline_delay/ord/2007/';
+
+
+create table ord_2007
+(
+delay int,
+month int,
+day int,
+dayOfWeek int,
+timeOfDay int,
+distance int,
+temp_min int,
+temp_max int)
+stored as orc;
+
+
+insert into table ord_2007 select * from ord_stg_2007;
