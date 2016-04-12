@@ -4,7 +4,7 @@ register 'util.py' USING jython as util;
 DEFINE preprocess(year_str, airport_code) returns data
 {
 	-- load airline data from specified year (need to specify fields since it's not in HCat)
-	airline = load '/workout/airline/$year_str.csv' using PigStorage(',') as (Year: int, Month: int, DayOfMonth: int, DayOfWeek: int, DepTime: chararray, CRSDepTime, ArrTime, CRSArrTime, Carrier: chararray, FlightNum, TailNum, ActualElapsedTime, CRSElapsedTime, AirTime, ArrDelay, DepDelay: int, Origin: chararray, Dest: chararray, Distance: int, TaxiIn, TaxiOut, Cancelled: int, CancellationCode, Diverted, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay);
+	airline = load '/ml/airline_delay/airline/$year_str.csv' using PigStorage(',') as (Year: int, Month: int, DayOfMonth: int, DayOfWeek: int, DepTime: chararray, CRSDepTime, ArrTime, CRSArrTime, Carrier: chararray, FlightNum, TailNum, ActualElapsedTime, CRSElapsedTime, AirTime, ArrDelay, DepDelay: int, Origin: chararray, Dest: chararray, Distance: int, TaxiIn, TaxiOut, Cancelled: int, CancellationCode, Diverted, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay);
 
 	-- keep only instances where flight was not cancelled
 	airline_flt = filter airline by Cancelled == 0;
@@ -16,7 +16,7 @@ DEFINE preprocess(year_str, airport_code) returns data
     			util.to_date(Year, Month, DayOfMonth) as date;
 
 	-- load weather data
-	weather = load '/workout/weather/$year_str.csv' using PigStorage(',') as (station: chararray, date: chararray, metric, value, t1, t2, t3, time);
+	weather = load '/ml/airline_delay/weather/$year_str.csv' using PigStorage(',') as (station: chararray, date: chararray, metric, value, t1, t2, t3, time);
 
 	-- keep only TMIN and TMAX weather observations from ORD
 	weather_tmin = filter weather by station == 'USW00094846' and metric == 'TMIN';
@@ -29,8 +29,8 @@ DEFINE preprocess(year_str, airport_code) returns data
 
 ORD_2007 = preprocess('2007', 'ORD');
 --rmf ord_2007;
-store ORD_2007 into '/workout/ord_2007' using PigStorage(',');
+store ORD_2007 into '/ml/airline_delay/ord/ord_2007' using PigStorage(',');
 
 ORD_2008 = preprocess('2008', 'ORD');
 --rmf ord_2008;
-store ORD_2008 into '/workout/ord_2008' using PigStorage(',');
+store ORD_2008 into '/ml/airline_delay/ord/ord_2008' using PigStorage(',');
