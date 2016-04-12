@@ -29,6 +29,7 @@ time string
 insert into weather_2007 select * from weather_2007_stg;
 
 
+-- Following table would contain ORD stage data for year 2007
 
 create external table ord_stg_2007
 (
