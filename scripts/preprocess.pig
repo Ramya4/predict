@@ -34,3 +34,4 @@ store ORD_2007 into '/ml/airline_delay/ord/ord_2007' using PigStorage(',');
 ORD_2008 = preprocess('2008', 'ORD');
 --rmf ord_2008;
 store ORD_2008 into '/ml/airline_delay/ord/ord_2008' using PigStorage(',');
+--rmf ord_2008;
